@@ -1,0 +1,3 @@
+Fecha, Temperatura máxima, Temperatura mínima
+2025-04-29,26,16
+2025-04-30,18,13

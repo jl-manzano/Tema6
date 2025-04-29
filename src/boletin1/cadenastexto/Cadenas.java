@@ -18,24 +18,30 @@ public class Cadenas {
 
 	public static void main(String[] args) {
 
-		String palabra = "";
+		String cadena = "";
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("CADENAS\n-------");
-
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FICHERO, true))) {
 
-			do {
-				System.out.println("\nIntroduce una palabra: ");
-				palabra = sc.nextLine();
-				bw.write(palabra);
-				bw.newLine();
-			} while (!palabra.equalsIgnoreCase("fin"));
+			System.out.println("Introduzca una cadena de texto: ");
+			cadena = sc.nextLine();
 
+			while (!cadena.equalsIgnoreCase("fin")) {
+				bw.write(cadena);
+				bw.newLine();
+
+				System.out.println("\nIntroduzca una cadena de texto: ");
+				cadena = sc.nextLine();
+			}
+			
+			bw.flush();
 			bw.close();
+			sc.close();
+
 		} catch (IOException e) {
 			System.out.println("Error: No se ha podido escribir en el fichero " + e.getMessage());
 		}
+
 	}
 }

@@ -1,5 +1,1 @@
-Nombre: Jose
-Edad: 19Nombre: Jose
-Edad: 19Nombre: Jose
-Edad: 19Nombre: Jose
-Edad: 19
+José Manzano, 19 años
