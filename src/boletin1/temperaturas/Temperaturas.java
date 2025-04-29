@@ -10,19 +10,31 @@ import java.util.Scanner;
 
 public class Temperaturas {
 
-	public static final String FICHERO = "src\\boletin1\\temperaturas\\Temperaturas.txt";
+	/**
+	 * Implementa una aplicación que mantenga un registro de las temperaturas máxima
+	 * y mínima diarias medidas en una estación meteorológica. Los datos se
+	 * guardarán en un archivo de texto con el siguiente formato: Fecha,Temperatura
+	 * máxima,Temperatura mínima 2020-01-15,12,-1 2020-01-16,15,2 … Al arrancar la
+	 * aplicación aparecerá un menú con las opciones: Registra nueva temperatura.
+	 * Mostrar historial de registros. Salir. El historial de registros mostrará
+	 * todos los datos registrados junto con el máximo valor de las temperaturas
+	 * máximas y el mínimo de las temperaturas mínimas.
+	 * 
+	 */
 	
+	public static final String FICHERO = "src\\boletin1\\temperaturas\\Temperaturas.txt";
+
 	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		int opcion;
-		
+
 		do {
 			menu();
 			opcion = sc.nextInt();
 			sc.nextLine();
-			
-			switch(opcion) {
+
+			switch (opcion) {
 			case 1 -> {
 				System.out.println("\nREGISTRAR TEMPERATURA\n");
 				registrarTemp();
@@ -34,9 +46,9 @@ public class Temperaturas {
 			case 3 -> System.out.println("\nSALIENDO ...");
 			default -> System.out.println("\nOpción no válida");
 			}
-			
-		} while(opcion != 3);
-		
+
+		} while (opcion != 3);
+
 	}
 
 	public static void mostrarRegistro() {
@@ -66,21 +78,21 @@ public class Temperaturas {
 		int max;
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FICHERO, true))) {
-			
+
 			BufferedReader br = new BufferedReader(new FileReader(FICHERO));
-			
-			if (br.readLine() == null ) {
+
+			if (br.readLine() == null) {
 				bw.write("Fecha, Temperatura máxima, Temperatura mínima");
 				bw.newLine();
 				br.close();
 			}
-			
+
 			System.out.println("\nIntroduzca la fecha (año-mes-dia): ");
 			fecha = sc.nextLine();
 
 			System.out.println("\nIntroduzca la temperatura máxima: ");
 			max = sc.nextInt();
-			
+
 			System.out.println("\nIntroduzca la temperatura mínima: ");
 			min = sc.nextInt();
 
@@ -88,13 +100,12 @@ public class Temperaturas {
 			bw.newLine();
 			bw.flush();
 
-
 		} catch (IOException e) {
 			System.out.println("No se ha podido leer el fichero: " + e.getMessage());
 		}
 
 	}
-	
+
 	public static void menu() {
 		System.out.println("\nTEMPERATURAS\n===========\n");
 		System.out.println("Introduzca una opción:");

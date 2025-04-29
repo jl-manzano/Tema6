@@ -11,6 +11,13 @@ import java.util.Collections;
 
 public class EnterosOrdenados {
 
+	/**
+	 * Implementa un programa que lea números enteros no ordenados de un archivo,
+	 * con un número por línea, y los almacene en una lista. A continuación, debe
+	 * guardar los números de la lista en otro fichero distinto pero ordenados de
+	 * forma ascendente
+	 */
+
 	public static final String FICHERO1 = "src\\boletin1\\enterosorden\\enterosDes.txt";
 	public static final String FICHERO2 = "src\\boletin1\\enterosorden\\enterosOrden.txt";
 

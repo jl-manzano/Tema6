@@ -9,6 +9,20 @@ import java.util.TreeMap;
 
 public class AgendaTelefonica {
 
+	/**
+	 * Diseña una pequeña agenda, que muestre el siguiente menú: Nuevo contacto.
+	 * Buscar por nombre. Mostrar todos. Salir. En ella, guardaremos el nombre y el
+	 * teléfono de un máximo de 20 personas. La opción 1 nos permitirá introducir un
+	 * nuevo contacto siempre y cuando la agenda no esté llena, comprobando que el
+	 * nombre no se encuentra ya insertado. La opción 2 pedirá el nombre a buscar en
+	 * la agenda y mostrará el teléfono correspondiente a dicho nombre. La opción 3
+	 * mostrará un listado con toda la información (nombres y teléfonos) ordenados
+	 * alfabéticamente por nombre. Por último, la opción 4 guarda todos los datos de
+	 * la agenda en el archivo agenda.txt. La próxima vez que se ejecute la
+	 * aplicación, si hay datos guardados, se cargarán en memoria.
+	 * 
+	 */
+
 	public static final String FICHERO = "src\\boletin1\\agendatlf\\AgendaTelefonica.txt";
 
 	public static void main(String[] args) {
@@ -20,13 +34,13 @@ public class AgendaTelefonica {
 		int tlf;
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		do {
-			
+
 			mostrarMenu();
 			opcion = sc.nextInt();
 			sc.nextLine();
-			
+
 			switch (opcion) {
 			case 1 -> {
 				System.out.println("\nAÑADIR EN LA AGENDA\n-------------------");
@@ -68,17 +82,17 @@ public class AgendaTelefonica {
 			case 4 -> {
 				System.out.println("\nSALIENDO...");
 			}
-			
+
 			default -> System.out.println("\nOpción no válida");
-			
+
 			}
-						
-		} while(opcion != 4);
-		
+
+		} while (opcion != 4);
+
 		guardarEnAgenda(agenda);
-		
+
 		sc.close();
-		
+
 	}
 
 	public static void guardarEnAgenda(TreeMap<String, Integer> agenda) {
